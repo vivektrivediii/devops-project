@@ -16,7 +16,10 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 18
-
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.6.6 
       - name: Terraform Apply AWS
         run: |
           cd terraform/aws
