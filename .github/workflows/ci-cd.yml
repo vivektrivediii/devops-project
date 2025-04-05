@@ -30,14 +30,14 @@ jobs:
           terraform init
           terraform apply -auto-approve
 
-      - name: Terraform Apply IBM
-        run: |
-          cd terraform/ibm
-          terraform init
-          terraform apply -auto-approve
+      # - name: Terraform Apply IBM
+      #   run: |
+      #     cd terraform/ibm
+      #     terraform init
+      #     terraform apply -auto-approve
 
       - name: Run Ansible for AWS
         run: ansible-playbook -i ansible/inventory_aws.ini ansible/playbook.yml
 
-      - name: Run Ansible for IBM
-        run: ansible-playbook -i ansible/inventory_ibm.ini ansible/playbook.yml
+      # - name: Run Ansible for IBM
+      #   run: ansible-playbook -i ansible/inventory_ibm.ini ansible/playbook.yml
