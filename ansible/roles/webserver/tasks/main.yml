@@ -1,47 +1,51 @@
-- name: Install prerequisites
+- name: Install prerequisites (Amazon Linux)
   become: true
-  apt:
-    update_cache: yes
+  yum:
     name:
-      - apt-transport-https
-      - ca-certificates
+      - yum-utils
+      - device-mapper-persistent-data
+      - lvm2
       - curl
-      - gnupg
-      - lsb-release
-
-- name: Add Docker GPG key
-  become: true
-  apt_key:
-    url: https://download.docker.com/linux/ubuntu/gpg
     state: present
 
 - name: Add Docker repository
   become: true
-  apt_repository:
-    repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ ansible_distribution_release }} stable"
-    state: present
+  get_url:
+    url: https://download.docker.com/linux/centos/docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
 
 - name: Install Docker
   become: true
-  apt:
-    name: docker-ce
-    update_cache: yes
+  yum:
+    name: docker
     state: latest
 
-
-# - name: Install Docker
-#   apt:
-#     name: docker.io
-#     state: present
-#     update_cache: yes
-
-- name: Start Docker
+- name: Start Docker service
+  become: true
   service:
     name: docker
     state: started
-    enabled: yes
+    enabled: true
 
-- name: Run Web App
+- name: Create app directory
+  become: true
+  file:
+    path: /opt/app
+    state: directory
+    owner: ec2-user
+    group: ec2-user
+    mode: '0755'
+
+- name: Copy application files (optional if you're using volumes)
+  become: true
+  copy:
+    src: ./app/
+    dest: /opt/app/
+    mode: '0755'
+  when: app_dir is defined  # Optional: add var check if needed
+
+- name: Run Web App Container
+  become: true
   docker_container:
     name: hello-app
     image: node:18
