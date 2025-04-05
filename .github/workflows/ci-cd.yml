@@ -26,15 +26,22 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }} 
         run: |
-          cd terraform/aws
+          cd terraform
           terraform init
-          # terraform apply -auto-approve
+          terraform apply -auto-approve
 
       # - name: Terraform Apply IBM
       #   run: |
       #     cd terraform/ibm
       #     terraform init
       #     terraform apply -auto-approve
+      - name: Generate Ansible Inventory
+        run: python3 generate_inventory.py
+
+      # - name: Run Ansible Playbook
+      #   run: |
+      #     ansible-playbook -i ansible/inventory_aws.ini ansible/playbook.yml --private-key ~/.ssh/devops.pem -u ec2-user
+
       - name: Set up SSH key
         run: |
           mkdir -p ~/.ssh
