@@ -1,4 +1,6 @@
 variable "ami_id" {}
 variable "instance_type" {}
 variable "key_name" {}
-variable "security_group_id" {}
+variable "instance_name" {}
+variable "sg_name" {}
+variable "sg_description" {}

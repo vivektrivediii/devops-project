@@ -1,20 +1,13 @@
-variable "aws_region" {
-  description = "AWS region to deploy in"
-  type        = string
+variable "aws_region" {}
+variable "ami_id" {}
+variable "instance_type" {}
+variable "key_name" {}
+variable "instance_name" {}
+
+variable "sg_name" {
+  default = "papersocial-sg"
 }
 
-variable "instance_type" {
-  description = "EC2 instance type"
-  type        = string
+variable "sg_description" {
+  default = "Allow HTTP and SSH"
 }
-
-variable "key_name" {
-  description = "Key pair name for EC2 access"
-  type        = string
-}
-
-variable "ami_id" {
-  description = "AMI ID for the EC2 instance"
-  type        = string
-}
-# variable "security_group_id" {}
