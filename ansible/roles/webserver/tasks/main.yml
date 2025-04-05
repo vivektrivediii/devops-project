@@ -1,0 +1,22 @@
+- name: Install Docker
+  apt:
+    name: docker.io
+    state: present
+    update_cache: yes
+
+- name: Start Docker
+  service:
+    name: docker
+    state: started
+    enabled: yes
+
+- name: Run Web App
+  docker_container:
+    name: hello-app
+    image: node:18
+    state: started
+    ports:
+      - "80:3000"
+    command: "node /app/server.js"
+    volumes:
+      - "/opt/app:/app"

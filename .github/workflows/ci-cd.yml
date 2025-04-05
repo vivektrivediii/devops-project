@@ -1,0 +1,36 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Terraform Apply AWS
+        run: |
+          cd terraform/aws
+          terraform init
+          terraform apply -auto-approve
+
+      - name: Terraform Apply IBM
+        run: |
+          cd terraform/ibm
+          terraform init
+          terraform apply -auto-approve
+
+      - name: Run Ansible for AWS
+        run: ansible-playbook -i ansible/inventory_aws.ini ansible/playbook.yml
+
+      - name: Run Ansible for IBM
+        run: ansible-playbook -i ansible/inventory_ibm.ini ansible/playbook.yml
