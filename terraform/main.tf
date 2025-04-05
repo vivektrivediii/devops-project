@@ -14,6 +14,6 @@ module "ec2_instance" {
   security_group_id = module.security_group.sg_id
 }
 
-output "aws_instance_ip" {
-  value = module.ec2_instance.public_ip
-}
+# output "aws_instance_ip" {
+#   value = module.ec2_instance.public_ip
+# }
