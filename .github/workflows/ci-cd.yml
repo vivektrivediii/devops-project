@@ -35,7 +35,17 @@ jobs:
       #     cd terraform/ibm
       #     terraform init
       #     terraform apply -auto-approve
+      - name: Set up SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.AWS_SSH_KEY }}" > ~/.ssh/devops.pem
+          chmod 600 ~/.ssh/devops.pem
+          echo -e "Host *\n  StrictHostKeyChecking no\n  UserKnownHostsFile=/dev/null" > ~/.ssh/config
 
+      - name: Run Ansible for AWS
+        run: |
+          ansible-playbook -i ansible/inventory_aws.ini ansible/playbook.yml \
+            --private-key ~/.ssh/devops.pem -u ec2-user
       - name: Run Ansible for AWS
         run: ansible-playbook -i ansible/inventory_aws.ini ansible/playbook.yml
 
