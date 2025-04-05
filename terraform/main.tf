@@ -11,7 +11,8 @@ module "ec2_instance" {
   ami_id            = var.ami_id
   instance_type     = var.instance_type
   key_name          = var.key_name
-  security_group_id = var.security_group.sg_id
+  security_group_id = [aws_security_group.sg.id]
+#   security_group_id = var.security_group.sg_id
 }
 
 # output "aws_instance_ip" {
