@@ -48,10 +48,10 @@
   become: true
   docker_container:
     name: hello-app
-    image: node:18
+    image: nginx
     state: started
     ports:
-      - "80:3000"
-    command: "node /app/server.js"
-    volumes:
-      - "/opt/app:/app"
+      - "80:80"
+    # # command: "node /app/server.js"
+    # volumes:
+    #   - "/opt/app:/app"
