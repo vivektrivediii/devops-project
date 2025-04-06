@@ -25,13 +25,21 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }} 
+          ARM_CLIENT_SECRET: ${{ secrets.AZURE_AD_APP_SECRET }}
         run: |
           cd terraform
           terraform init
           terraform apply -auto-approve
           # terraform destroy -auto-approve
 
-
+      # - name: Terraform Apply Azure
+      #   env:
+      #     ARM_CLIENT_SECRET: ${{ secrets.AZURE_AD_APP_SECRET }}
+      #   run: |
+      #     cd terraform
+      #     terraform init
+      #     terraform apply -auto-approve \
+      #       -var="client_secret=$ARM_CLIENT_SECRET"
       # - name: Terraform Apply IBM
       #   run: |
       #     cd terraform/ibm
