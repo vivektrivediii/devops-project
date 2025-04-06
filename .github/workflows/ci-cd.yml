@@ -37,7 +37,8 @@ jobs:
       #     terraform init
       #     terraform apply -auto-approve
       - name: Generate Ansible Inventory
-        run: python3 terraform/generate_inventory.py
+        working-directory: terraform
+        run: python3 generate_inventory.py
 
 
       - name: Set up SSH key
