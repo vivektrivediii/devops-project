@@ -1,13 +1,18 @@
-variable "aws_region" {}
-
-variable "ami_id" {}
-
-variable "instance_type" {}
-
-variable "key_name" {}
-
-
-variable "instance_name" {}
+variable "aws_region" {
+  default =  "us-east-1"
+}
+variable "ami_id" {
+  default = "ami-00a929b66ed6e0de6"
+}
+variable "instance_type" {
+  default = "t2.micro"
+}
+variable "key_name" {
+  default = "Devops-vivek"
+}
+variable "instance_name" {
+  default = "PaperSocialAWS"
+}
 
 
 variable "sg_name" {
@@ -43,52 +48,3 @@ variable "admin_password" {
   sensitive   = true
   default = "P@ssword1234!"
 }
-
-# variable "sg_name" {
-#   default = ""
-# }
-
-# variable "sg_description" {
-#   default = ""
-# }
-
-#### Azure ####
-# variable "resource_group_name" {}
-
-# variable "location" {}
-
-# variable "vm_name" {}
-
-
-# variable "subscription_id" {
-#   default = ""
-# }
-
-# variable "client_id" {
-#   default = ""
-# }
-
-# variable "client_secret" {
-#   sensitive = true
-#   default   = ""
-# }
-
-# variable "tenant_id" {
-#   default = ""
-# }
-
-# variable "aws_region" {
-#   default =  "us-east-1"
-# }
-# variable "ami_id" {
-#   default = "ami-00a929b66ed6e0de6"
-# }
-# variable "instance_type" {
-#   default = "t2.micro"
-# }
-# variable "key_name" {
-#   default = "Devops-vivek"
-# }
-# variable "instance_name" {
-#   default = "PaperSocialAWS"
-# }
