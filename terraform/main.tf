@@ -2,6 +2,10 @@ provider "aws" {
   region = var.aws_region
 }
 
+provider "azurerm" {
+  features {}
+}
+
 module "ec2_instance" {
   source          = "./modules/aws"
   ami_id          = var.ami_id
@@ -12,19 +16,6 @@ module "ec2_instance" {
   sg_description  = var.sg_description
 }
 
-
-#### az #######
-# provider "azurerm" {
-#   features {}
-#   subscription_id = var.subscription_id
-#   client_id       = var.client_id
-#   client_secret   = var.client_secret
-#   tenant_id       = var.tenant_id
-#   use_cli = false
-# }
-provider "azurerm" {
-  features {}
-}
 
 module "vm" {
   source              = "./modules/vm"

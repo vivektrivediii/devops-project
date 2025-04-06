@@ -11,6 +11,7 @@ with open("./../ansible/inventory_azure.ini", "w") as f:
     f.write(f"[azure]\n{azure_ip} ansible_user=azureuser ansible_password='P@ssword1234!' ansible_connection=ssh ansible_ssh_common_args='-o StrictHostKeyChecking=no'\n")
 
 
+##### for ssh key
 
 # import json
 # import subprocess
