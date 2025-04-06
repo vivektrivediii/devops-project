@@ -4,6 +4,7 @@ variable "instance_type" {}
 variable "key_name" {}
 variable "instance_name" {}
 variable "admin_password" {}
+variable "admin_username" {}
 
 variable "sg_name" {
   default = "papersocial-sg"
@@ -30,10 +31,7 @@ variable "vm_name" {
   # type        = string
 }
 
-variable "admin_username" {
-  # description = "Admin username for the VM"
-  # type        = string
-}
+
 
 # variable "admin_password" {
 #   # description = "Admin password for the VM"
