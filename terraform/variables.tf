@@ -27,39 +27,29 @@ variable "sg_description" {
 }
 
 #### Azure ####
-variable "resource_group_name" {}
+# variable "resource_group_name" {}
 
-variable "location" {}
+# variable "location" {}
 
-variable "vm_name" {}
+# variable "vm_name" {}
 
-variable "admin_username" {
-  description = "Admin username for the VM"
-  type        = string
-}
 
-variable "admin_password" {
-  description = "Admin password for the VM"
-  type        = string
-  sensitive   = true
-}
+# variable "subscription_id" {
+#   default = ""
+# }
 
-variable "subscription_id" {
-  default = ""
-}
+# variable "client_id" {
+#   default = ""
+# }
 
-variable "client_id" {
-  default = ""
-}
+# variable "client_secret" {
+#   sensitive = true
+#   default   = ""
+# }
 
-variable "client_secret" {
-  sensitive = true
-  default   = ""
-}
-
-variable "tenant_id" {
-  default = ""
-}
+# variable "tenant_id" {
+#   default = ""
+# }
 
 # variable "aws_region" {
 #   default =  "us-east-1"
@@ -88,28 +78,28 @@ variable "tenant_id" {
 
 
 # ####az###
-# variable "resource_group_name" {
-#   default = "my-rg"
-# }
-# variable "location" {
-#   default = "East US"
-# }
-# variable "vm_name" {
-#   default = "myvm"
-# }
+variable "resource_group_name" {
+  default = "my-rg"
+}
+variable "location" {
+  default = "East US"
+}
+variable "vm_name" {
+  default = "myvm"
+}
 
-# variable "admin_username" {
-#   description = "Admin username for the VM"
-#   type        = string
-#   default = "azureuser"
-# }
+variable "admin_username" {
+  description = "Admin username for the VM"
+  type        = string
+  default = "azureuser"
+}
 
-# variable "admin_password" {
-#   description = "Admin password for the VM"
-#   type        = string
-#   sensitive   = true
-#   default = "P@ssword1234!"
-# }
+variable "admin_password" {
+  description = "Admin password for the VM"
+  type        = string
+  sensitive   = true
+  default = "P@ssword1234!"
+}
 
 
 # variable "subscription_id" {
