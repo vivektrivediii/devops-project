@@ -41,6 +41,7 @@ variable "admin_password" {
   default = "P@ssword1234!"
 }
 
+
 variable "subscription_id" {
   type        = string
   description = "Azure subscription ID"
