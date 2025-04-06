@@ -1,0 +1,86 @@
+---
+- name: Setup Web App on Azure Ubuntu VM
+  hosts: all
+  become: true
+  vars:
+    app_dir: /opt/app
+
+  tasks:
+    - name: Install prerequisites
+      apt:
+        name:
+          - apt-transport-https
+          - ca-certificates
+          - curl
+          - software-properties-common
+        state: present
+        update_cache: yes
+
+    - name: Add Docker GPG key
+      apt_key:
+        url: https://download.docker.com/linux/ubuntu/gpg
+        state: present
+
+    - name: Add Docker repository
+      apt_repository:
+        repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable
+        state: present
+
+    - name: Install Docker
+      apt:
+        name: docker-ce
+        state: latest
+        update_cache: yes
+
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+        enabled: true
+
+    - name: Create app directory
+      file:
+        path: "{{ app_dir }}"
+        state: directory
+        owner: azureuser
+        group: azureuser
+        mode: '0755'
+
+    - name: Copy application files (optional)
+      copy:
+        src: ./app/
+        dest: "{{ app_dir }}/"
+        mode: '0755'
+      when: app_dir is defined
+
+    - name: Run Web App Container
+      docker_container:
+        name: hello-app
+        image: nginx
+        state: started
+        ports:
+          - "80:80"
+        # volumes:
+        #   - "{{ app_dir }}:/app"
+
+    - name: Ensure pip3 is installed
+      apt:
+        name: python3-pip
+        state: present
+        update_cache: yes
+
+    - name: Upload Flask app
+      copy:
+        src: ../../../../app/app.py
+        dest: /home/azureuser/app.py
+        mode: '0755'
+
+    - name: Install Flask
+      pip:
+        name: flask
+        executable: pip3
+
+    - name: Run Flask app
+      shell: nohup python3 /home/azureuser/app.py > flask.log 2>&1 &
+      args:
+        executable: /bin/bash

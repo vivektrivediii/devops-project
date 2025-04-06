@@ -73,6 +73,6 @@ jobs:
           ansible-playbook -i ansible/inventory_aws.ini ansible/playbook.yml \
             --private-key ~/.ssh/devops.pem -u ec2-user
 
-      # - name: Run Ansible for IBM
-      #   run: ansible-playbook -i ansible/inventory_ibm.ini ansible/playbook.yml
+      - name: Run Ansible for Azure
+        run: ansible-playbook -i ansible/inventory_azure.ini ansible/ubuntu.yml
 
