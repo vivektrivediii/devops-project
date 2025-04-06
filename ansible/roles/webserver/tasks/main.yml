@@ -107,8 +107,18 @@
     mode: '0755'
     directory_mode: '0755'
   # notify: Run docker-compose
+- name: Stop and remove existing Docker containers
+  command: docker-compose down
+  args:
+    chdir: /home/{{ ansible_user }}/monitoring
+  ignore_errors: yes
 
-- name: Run docker-compose up -d
+- name: Recreate containers with docker-compose
   command: docker-compose up -d --force-recreate
   args:
     chdir: /home/{{ ansible_user }}/monitoring
+
+# - name: Run docker-compose up -d
+#   command: docker-compose up -d --force-recreate
+#   args:
+#     chdir: /home/{{ ansible_user }}/monitoring
