@@ -109,6 +109,6 @@
   # notify: Run docker-compose
 
 - name: Run docker-compose up -d
-  command: docker-compose up -d
+  command: docker-compose up -d --force-recreate
   args:
     chdir: /home/{{ ansible_user }}/monitoring
