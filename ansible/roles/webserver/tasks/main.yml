@@ -1,5 +1,6 @@
 - name: Install prerequisites (Amazon Linux)
   become: true
+  hosts: all
   yum:
     name:
       - yum-utils
