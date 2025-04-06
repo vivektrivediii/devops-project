@@ -25,9 +25,16 @@ variable "sg_description" {
 
 
 ####az###
-variable "resource_group_name" {}
-variable "location" {}
-variable "vm_name" {}
+variable "resource_group_name" {
+  default = "my-rg"
+}
+variable "location" {
+  default = "East US"
+}
+variable "vm_name" {
+  default = "myvm"
+}
+
 variable "admin_username" {
   description = "Admin username for the VM"
   type        = string
