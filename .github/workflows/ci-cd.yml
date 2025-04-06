@@ -28,8 +28,8 @@ jobs:
         run: |
           cd terraform
           terraform init
-          # terraform apply -auto-approve
-          terraform destroy -auto-approve
+          terraform apply -auto-approve
+          # terraform destroy -auto-approve
 
 
       # - name: Terraform Apply IBM
