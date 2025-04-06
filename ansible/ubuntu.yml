@@ -1,5 +1,5 @@
 - name: Configure Web Server
-  hosts: all
+  hosts: azure
   become: true
   roles:
     - ubuntu-webserver
