@@ -28,7 +28,8 @@ jobs:
         run: |
           cd terraform
           terraform init
-          terraform apply -auto-approve
+          # terraform apply -auto-approve
+          terraform destroy -auto-approve
 
 
       # - name: Terraform Apply IBM
@@ -43,7 +44,6 @@ jobs:
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
         run: python3 generate_inventory.py
-
 
       - name: Set up SSH key
         run: |
