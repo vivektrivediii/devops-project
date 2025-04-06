@@ -35,12 +35,12 @@ variable "admin_username" {
   # type        = string
 }
 
-variable "admin_password" {
-  # description = "Admin password for the VM"
-  # type        = string
-  # sensitive   = true
-  # default = "P@ssword1234!"
-}
+# variable "admin_password" {
+#   # description = "Admin password for the VM"
+#   # type        = string
+#   # sensitive   = true
+#   # default = "P@ssword1234!"
+# }
 
 
 variable "subscription_id" {
