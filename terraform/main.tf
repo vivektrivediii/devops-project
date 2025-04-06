@@ -12,6 +12,7 @@ module "ec2_instance" {
   sg_description  = var.sg_description
 }
 
+
 #### az #######
 provider "azurerm" {
   features {}
