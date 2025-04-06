@@ -55,6 +55,21 @@
     # volumes:
     #   - "/opt/app:/app"
 
+
+- name: Ensure pip3 is installed (Amazon Linux / RHEL)
+  become: yes
+  yum:
+    name: python3-pip
+    state: present
+  when: ansible_os_family == "RedHat"
+
+- name: Ensure pip3 is installed (Debian/Ubuntu)
+  become: yes
+  apt:
+    name: python3-pip
+    state: present
+    update_cache: yes
+  when: ansible_os_family == "Debian"
 #### Deploy Flask app
 - name: Upload Flask app
   copy:
