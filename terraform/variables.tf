@@ -1,22 +1,13 @@
-variable "aws_region" {
-  default = ""
-}
+variable "aws_region" {}
 
-variable "ami_id" {
-  default = ""
-}
+variable "ami_id" {}
 
-variable "instance_type" {
-  default = ""
-}
+variable "instance_type" {}
 
-variable "key_name" {
-  default = ""
-}
+variable "key_name" {}
 
-variable "instance_name" {
-  default = ""
-}
+
+variable "instance_name" {}
 
 
 variable "sg_name" {
