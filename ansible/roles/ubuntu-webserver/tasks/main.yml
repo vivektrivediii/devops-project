@@ -51,3 +51,4 @@
       shell: nohup python3 /home/azureuser/app.py > flask.log 2>&1 &
       args:
         executable: /bin/bash
+
