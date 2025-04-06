@@ -102,7 +102,7 @@ resource "azurerm_network_security_group" "nsg" {
     destination_address_prefix = "*"
   }
   security_rule {
-    name                       = "Allow-5000"
+    name                       = "Allow-3000"
     priority                   = 1004
     direction                  = "Inbound"
     access                     = "Allow"

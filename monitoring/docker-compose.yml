@@ -15,6 +15,7 @@ services:
   #   command: -config.file=/etc/loki/loki-config.yml
   #   volumes:
   #     - ./loki/loki-config.yml:/etc/loki/loki-config.yml
+      # - ./loki:/tmp/loki
 
   grafana:
     image: grafana/grafana
