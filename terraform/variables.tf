@@ -30,6 +30,7 @@ variable "admin_password" {
   default = "P@ssword1234!"
 }
 
+
 variable "subscription_id" {}
 variable "client_id" {}
 variable "client_secret" {
