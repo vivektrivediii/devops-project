@@ -37,7 +37,6 @@ jobs:
       #     terraform init
       #     terraform apply -auto-approve
       - name: Generate Ansible Inventory
-        working-directory: ./terraform 
         run: python3 ansible/generate_inventory.py
 
 
