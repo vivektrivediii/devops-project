@@ -54,3 +54,25 @@
     # # command: "node /app/server.js"
     # volumes:
     #   - "/opt/app:/app"
+
+#### Deploy Flask app
+
+- name: Deploy Flask App
+  hosts: web
+  become: yes
+  tasks:
+    - name: Upload Flask app
+      copy:
+        src: ../app/app.py
+        dest: /home/ec2-user/app.py
+        mode: '0755'
+
+    - name: Install Flask (if not already)
+      pip:
+        name: flask
+        executable: pip3
+
+    - name: Run Flask app
+      shell: nohup python3 /home/ec2-user/app.py > flask.log 2>&1 &
+      args:
+        executable: /bin/bash
