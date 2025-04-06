@@ -37,8 +37,8 @@ jobs:
         run: |
           cd terraform
           terraform init
-          terraform apply -auto-approve -var-file="terraform.tfvars"
-          # terraform destroy -auto-approve
+          # terraform apply -auto-approve -var-file="terraform.tfvars"
+          terraform destroy -auto-approve
 
       - name: Generate Ansible Inventory
         working-directory: terraform
