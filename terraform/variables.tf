@@ -36,8 +36,13 @@ variable "admin_password" {
 
 
 variable "subscription_id" {}
-variable "client_id" {}
+variable "client_id" {
+  default = "e3f426e5-a663-40b0-a54e-7c5d642b79af"
+}
 variable "client_secret" {
   sensitive = true
+  default = "32N8Q~S~0fyVBdUnAR~Y01nXY9hXY13L1TGFAbNZ"
 }
-variable "tenant_id" {}
+variable "tenant_id" {
+  default = "a3eaa001-4ee7-4f4c-ae0d-0b90d33be842"
+}
