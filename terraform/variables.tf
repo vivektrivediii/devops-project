@@ -49,7 +49,9 @@ variable "admin_password" {
 }
 
 
-variable "subscription_id" {}
+variable "subscription_id" {
+  default = "b8248299-e63a-417a-a335-5d3c87fa9990"
+}
 variable "client_id" {
   default = "e3f426e5-a663-40b0-a54e-7c5d642b79af"
 }
