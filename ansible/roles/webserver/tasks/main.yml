@@ -58,7 +58,7 @@
 #### Deploy Flask app
 - name: Upload Flask app
   copy:
-    src: ../../app/app.py
+    src:  ../../../../app/app.py
     dest: /home/ec2-user/app.py
     mode: '0755'
 
