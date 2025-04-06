@@ -97,3 +97,16 @@
   shell: nohup python3 /home/ec2-user/app.py > flask.log 2>&1 &
   args:
     executable: /bin/bash
+
+- name: Copy docker-compose.yml to remote server
+  copy:
+    src:  ../../../../monitoring/docker-compose.yml
+    dest: /home/{{ ansible_user }}/docker-compose.yml
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: '0644'
+
+- name: Run docker-compose up -d
+  command: docker-compose up -d
+  args:
+    chdir: /home/{{ ansible_user }}
