@@ -2,18 +2,18 @@ data "aws_vpc" "default" {
   default = true
 }
 
-data "aws_security_group" "existing" {
-  name   = var.sg_name
-  vpc_id = data.aws_vpc.default.id
+# data "aws_security_group" "existing" {
+#   name   = var.sg_name
+#   vpc_id = data.aws_vpc.default.id
 
-  # # ignore errors if not found
-  # lifecycle {
-  #   ignore_errors = true
-  # }
-}
+#   # # ignore errors if not found
+#   # lifecycle {
+#   #   ignore_errors = true
+#   # }
+# }
 
 resource "aws_security_group" "this" {
-  count       = data.aws_security_group.existing.id != "" ? 0 : 1
+  # count       = data.aws_security_group.existing.id != "" ? 0 : 1
   name        = var.sg_name
   description = var.sg_description
   vpc_id      = data.aws_vpc.default.id
