@@ -1,25 +1,10 @@
-variable "resource_group_name" {
-  type        = string
-  description = "Resource group name"
-}
+variable "resource_group_name" {}
 
-variable "location" {
-  type        = string
-  description = "Azure region"
-}
+variable "location" {}
 
-variable "vm_name" {
-  type        = string
-  description = "Virtual Machine name"
-}
+variable "vm_name" {}
 
-variable "admin_username" {
-  type        = string
-  description = "VM admin username"
-}
+variable "admin_username" {}
 
-variable "admin_password" {
-  type        = string
-  description = "VM admin password"
-  sensitive   = true
-}
+
+variable "admin_password" {}

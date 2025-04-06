@@ -4,9 +4,6 @@ instance_type   = "t2.micro"
 key_name        = "Devops-vivek"
 instance_name   = "PaperSocialAWS"
 
-
-####az#####
-
 resource_group_name = "my-rg"
 location            = "East US"
 vm_name             = "myvm"
