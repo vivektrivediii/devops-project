@@ -3,6 +3,7 @@ variable "ami_id" {}
 variable "instance_type" {}
 variable "key_name" {}
 variable "instance_name" {}
+variable "admin_password" {}
 
 variable "sg_name" {
   default = "papersocial-sg"
