@@ -23,6 +23,7 @@ variable "sg_description" {
 }
 
 
+
 ####az###
 variable "resource_group_name" {}
 variable "location" {}
