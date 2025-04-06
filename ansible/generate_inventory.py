@@ -5,7 +5,7 @@ import subprocess
 output = subprocess.check_output(["terraform", "output", "-json"]).decode("utf-8")
 data = json.loads(output)
 
-instance_ip = data["ec2_ip"]
+instance_ip = data["aws_instance_ip"]["value"]
 
 # Write to inventory file
 with open("ansible/inventory_aws.ini", "w") as f:
