@@ -4,9 +4,15 @@ variable "aws_region" {
 variable "ami_id" {
   default = "ami-00a929b66ed6e0de6"
 }
-variable "instance_type" {}
-variable "key_name" {}
-variable "instance_name" {}
+variable "instance_type" {
+  default = "t2.micro"
+}
+variable "key_name" {
+  default = "Devops-vivek"
+}
+variable "instance_name" {
+  default = "PaperSocialAWS"
+}
 
 variable "sg_name" {
   default = "papersocial-sg"
