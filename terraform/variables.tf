@@ -3,8 +3,6 @@ variable "ami_id" {}
 variable "instance_type" {}
 variable "key_name" {}
 variable "instance_name" {}
-variable "admin_password" {}
-variable "admin_username" {}
 
 variable "sg_name" {
   default = "papersocial-sg"
@@ -16,49 +14,16 @@ variable "sg_description" {
 
 
 ####az###
-variable "resource_group_name" {
-  # description = "Name of the resource group"
-  # type        = string
+variable "resource_group_name" {}
+variable "location" {}
+variable "vm_name" {}
+variable "admin_username" {}
+variable "admin_password" {
+  sensitive = true
 }
-
-variable "location" {
-  # description = "Azure region for resources"
-  # type        = string
-}
-
-variable "vm_name" {
-  # description = "Name of the Virtual Machine"
-  # type        = string
-}
-
-
-
-# variable "admin_password" {
-#   # description = "Admin password for the VM"
-#   # type        = string
-#   # sensitive   = true
-#   # default = "P@ssword1234!"
-# }
-
-
-variable "subscription_id" {
-  # type        = string
-  # description = "Azure subscription ID"
-}
-
-variable "client_id" {
-  # type        = string
-  # description = "Azure client ID"
-}
-
+variable "subscription_id" {}
+variable "client_id" {}
 variable "client_secret" {
-  # type        = string
-  # description = "Azure client secret"
-  # sensitive   = true
+  sensitive = true
 }
-
-variable "tenant_id" {
-  # type        = string
-  # description = "Azure tenant ID"
-}
-    
+variable "tenant_id" {}
