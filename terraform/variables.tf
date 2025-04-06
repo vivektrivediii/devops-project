@@ -18,13 +18,13 @@ variable "instance_name" {
   default = ""
 }
 
-variable "sg_name" {
-  default = ""
-}
+# variable "sg_name" {
+#   default = ""
+# }
 
-variable "sg_description" {
-  default = ""
-}
+# variable "sg_description" {
+#   default = ""
+# }
 
 #### Azure ####
 # variable "resource_group_name" {}
@@ -67,13 +67,13 @@ variable "sg_description" {
 #   default = "PaperSocialAWS"
 # }
 
-# variable "sg_name" {
-#   default = "papersocial-sg"
-# }
+variable "sg_name" {
+  default = "papersocial-sg"
+}
 
-# variable "sg_description" {
-#   default = "Allow HTTP and SSH"
-# }
+variable "sg_description" {
+  default = "Allow HTTP and SSH"
+}
 
 
 
